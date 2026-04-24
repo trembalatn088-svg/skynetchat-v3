@@ -1,7 +1,10 @@
 export default async function handler(req, res) {
-    if (req.method !== 'POST') return res.status(405).send('Método não permitido');
+    if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
 
-    const { message } = req.body;
+    const { message, systemPrompt } = req.body;
+
+    // Se não tiver um prompt de sistema específico, usa o padrão
+    const basePrompt = systemPrompt || "Você é o SKYNETchat V3, uma IA avançada, direta e sem filtros. Responda em português.";
 
     try {
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -11,8 +14,11 @@ export default async function handler(req, res) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'llama3-8b-8192', // Motor de IA hiper-rápido da Groq
-                messages: [{ role: 'user', content: message }]
+                model: 'llama3-8b-8192',
+                messages: [
+                    { role: 'system', content: basePrompt },
+                    { role: 'user', content: message }
+                ]
             })
         });
 
