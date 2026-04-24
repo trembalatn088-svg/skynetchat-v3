@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYNETchat V3 | Inteligência Artificial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-robot"></i> SKYNET V3</h2>
+            </div>
+            <div class="settings-group">
+                <label>Tema Especial</label>
+                <select id="theme-selector">
+                    <option value="light">Modo Claro</option>
+                    <option value="dark" selected>Modo Escuro</option>
+                    <option value="cyber">Cyber Skynet (Neon)</option>
+                </select>
+            </div>
+            <div class="sidebar-footer">
+                <button title="Limpar Chat"><i class="fas fa-trash"></i> Limpar Conversa</button>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <header class="main-header">
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <h1>Painel de Inteligência</h1>
+                <div class="status-indicator">Online</div>
+            </header>
+
+            <div id="chat-window" class="chat-window">
+                <div class="message system">Olá! Como posso ajudar na sua evolução hoje?</div>
+            </div>
+
+            <footer class="input-area">
+                <div class="input-container">
+                    <textarea id="user-input" placeholder="Digite sua mensagem..." rows="1"></textarea>
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
